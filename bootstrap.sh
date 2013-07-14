@@ -13,8 +13,6 @@ rpm -q rubygems; if [ $? -ne 0 ]; then yum install rubygems -y; fi
 
 grep $HOSTNAME /etc/hosts; if [ $? -ne 0 ]; then echo "$(ifconfig eth0 | grep -Eo 'addr:[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d: -f2)    $HOSTNAME" >> /etc/hosts ; fi
 
-grep chef /etc/hosts; if [ $? -ne 0 ]; then echo "10.0.2.15   chef" >> /etc/hosts ; fi
-
 if [ ! -f /etc/yum.repos.d/10gen.repo  ]; then
 
 cat > /etc/yum.repos.d/10gen.repo  << "EOF"
